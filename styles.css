@@ -157,8 +157,8 @@ header.hidden {
 .hero-header {
   position: relative;
   width: 100%;
-  height: 65vh;
-  min-height: 550px;
+  height: 80vh;
+  min-height: 700px;
   background: linear-gradient(180deg, #1E1233 0%, #4B384F 50%, #C4A17E 100%);
   border-bottom: 2px solid var(--accent-gold);
   display: flex;
@@ -309,6 +309,15 @@ header.hidden {
   padding: 4rem 2rem 1rem;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.info-content {
+  background: rgba(31, 27, 36, 0.4);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.3), 0 8px 20px rgba(0,0,0,0.4);
+  backdrop-filter: blur(5px);
   text-align: center;
 }
 
@@ -572,6 +581,7 @@ footer {
     padding: 0.8rem 1.2rem;
     width: 85%;
   }
+  .info-content { padding: 1.5rem 1rem; }
   .product-image {
     max-width: 100%;
     max-height: 120px;
