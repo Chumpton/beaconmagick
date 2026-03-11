@@ -287,19 +287,19 @@ header.hidden {
   background-size: contain;
 }
 
-/* What is Magick Section */
-.what-is-magick-section {
+/* Info Sections (What is Magick / What is a Sigil) */
+.info-section {
   padding: 4rem 2rem 1rem;
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
 }
 
-.what-is-magick-content .section-title {
+.info-content .section-title {
   margin-bottom: 1.5rem;
 }
 
-.magick-text {
+.info-text {
   font-family: var(--font-gabriela);
   font-size: 1.1rem;
   line-height: 1.8;
