@@ -106,9 +106,14 @@ header.hidden {
 
 .header-logo {
   position: absolute;
-  top: -10px; /* Pulls logo down slightly so it intersects nav and hero text */
+  top: -10px; /* Pulls logo down slightly so it intersects nav */
   left: 50%;
   transform: translateX(-50%);
+  z-index: 101;
+}
+
+.hero-logo {
+  margin-bottom: 1.5rem;
   z-index: 101;
 }
 
@@ -473,7 +478,7 @@ footer {
   .wide-card-content { width: 100%; padding: 1.5rem; align-items: center; text-align: center; }
   .dark-card .wide-card-content { align-items: center; text-align: center; margin: 0; border: none; }
   .nav-container { padding: 0 1rem; }
-  /* Don't hide nav left entirely, compress it for pill */
+  .nav-left a, .nav-right a { font-size: 0.75rem; }
 }
 
 @media (max-width: 600px) {
@@ -489,20 +494,21 @@ footer {
   .lantern-icon { width: 12px; height: 16px; margin-left: 0.2rem; }
   
   .header-logo { top: -15px; }
-  .logo-inner { width: 80px; height: 80px; }
+  .header-logo .logo-inner { width: 50px; height: 50px; border-width: 0.5px; }
+  
+  .hero-logo { margin-bottom: 0.5rem; margin-top: 1rem; }
+  .hero-logo .logo-inner { width: 90px; height: 90px; }
 
   .hero-header { height: 100svh; min-height: 480px; }
-  .hero-overlay-content { padding-top: 2rem; }
+  .hero-overlay-content { padding-top: 3rem; }
   
-  /* Integrate logo tightly into header text context */
   .shop-title {
     font-size: 2.2rem;
     letter-spacing: 2px;
     text-align: center;
-    line-height: 1.2;
+    line-height: 1.25;
     padding: 0 1rem;
-    margin-bottom: 1.5rem;
-    margin-top: 60px; /* Provide space for the overlapping lighthouse */
+    margin-bottom: 1.2rem;
   }
   .hero-bubble {
     font-size: 0.8rem;
