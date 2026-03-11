@@ -97,13 +97,6 @@ header.hidden {
   fill: var(--accent-gold);
   margin-left: 0.5rem;
 }
-
-@keyframes lighthousePulse {
-  0% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.4), inset 0 0 10px rgba(0,0,0,0.8); }
-  50% { box-shadow: 0 0 35px rgba(212, 175, 55, 0.9), inset 0 0 10px rgba(0,0,0,0.8); border-color: rgba(212, 175, 55, 0.8); }
-  100% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.4), inset 0 0 10px rgba(0,0,0,0.8); }
-}
-
 .header-logo {
   position: absolute;
   top: -10px; /* Pulls logo down slightly so it intersects nav */
@@ -113,13 +106,13 @@ header.hidden {
 }
 
 .hero-logo {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   z-index: 101;
 }
 
 .logo-inner {
-  width: 110px;
-  height: 110px;
+  width: 170px;
+  height: 170px;
   border-radius: 50%;
   border: 1px solid rgba(212, 175, 55, 0.6);
   padding: 4px; /* Creates inner ring effect */
@@ -127,8 +120,13 @@ header.hidden {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 15px rgba(0,0,0,0.8);
-  animation: lighthousePulse 4s infinite ease-in-out;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.9);
+}
+
+.header-logo .logo-inner {
+  width: 110px;
+  height: 110px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.8);
 }
 
 .logo-inner img {
@@ -170,7 +168,7 @@ header.hidden {
 
 .shop-title {
   font-family: var(--font-gabriela);
-  font-size: 3.2rem;
+  font-size: 4.5rem;
   letter-spacing: 4px;
   text-shadow: 0 0 15px rgba(212, 175, 55, 0.4), 0 2px 10px rgba(0,0,0,0.9);
   margin-bottom: 2.5rem;
@@ -277,6 +275,26 @@ header.hidden {
   top: 15%; right: 10%; width: 150px; height: 150px;
   background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M20,80 L50,50 L30,20 L80,30" stroke="rgba(255,255,255,0.3)" fill="none"/><circle cx="20" cy="80" r="2" fill="white"/><circle cx="50" cy="50" r="2" fill="white"/><circle cx="30" cy="20" r="2" fill="white"/><circle cx="80" cy="30" r="2" fill="white"/></svg>') no-repeat center;
   background-size: contain;
+}
+
+/* What is Magick Section */
+.what-is-magick-section {
+  padding: 4rem 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.what-is-magick-content .section-title {
+  margin-bottom: 1.5rem;
+}
+
+.magick-text {
+  font-family: var(--font-gabriela);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  opacity: 0.9;
 }
 
 /* Featured Section */
@@ -496,17 +514,17 @@ footer {
   .header-logo { top: -15px; }
   .header-logo .logo-inner { width: 50px; height: 50px; border-width: 0.5px; }
   
-  .hero-logo { margin-bottom: 0.5rem; margin-top: 1rem; }
-  .hero-logo .logo-inner { width: 90px; height: 90px; }
+  .hero-logo { margin-bottom: 1rem; margin-top: 2rem; }
+  .hero-logo .logo-inner { width: 130px; height: 130px; }
 
   .hero-header { height: 100svh; min-height: 480px; }
   .hero-overlay-content { padding-top: 3rem; }
   
   .shop-title {
-    font-size: 2.2rem;
+    font-size: 3.2rem;
     letter-spacing: 2px;
     text-align: center;
-    line-height: 1.25;
+    line-height: 1.1;
     padding: 0 1rem;
     margin-bottom: 1.2rem;
   }
