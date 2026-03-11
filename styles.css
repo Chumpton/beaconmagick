@@ -324,6 +324,16 @@ header.hidden {
   opacity: 0.9;
 }
 
+.sigil-example-img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.8);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  margin-top: 1rem;
+}
+
 /* Featured Section */
 .featured-section {
   padding: 3rem 2rem 2rem;
@@ -571,3 +581,350 @@ footer {
   .product-title { font-size: 0.85rem; }
   .wide-cards-container { padding: 0 1rem; }
 }
+
+/* Tarot Component Styles from Cosmic Compass */
+        #deck-area {
+            position: relative;
+            width: 200px;
+            height: 300px;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 20px 40px rgba(107, 33, 168, 0.4));
+        }
+
+        #deck-area:hover {
+            transform: scale(1.04);
+            filter: drop-shadow(0 24px 50px rgba(201, 168, 76, 0.35));
+        }
+
+        /* ── A single card element ── */
+        .card {
+            position: absolute;
+            width: 160px;
+            height: 256px;
+            border-radius: 16px;
+            transform-style: preserve-3d;
+            transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.8s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+        }
+
+        .card .face,
+        .card .back {
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .card .back {
+            background: linear-gradient(135deg, #1a0533 0%, #2d0a5e 40%, #1a0533 100%);
+            border: 2.5px solid var(--gold);
+            box-shadow: 3px 3px 0 #a07820, 6px 6px 0 #7a5c10, 9px 9px 0 rgba(0, 0, 0, 0.55), 0 18px 40px rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .card .back::before {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border: 1.5px solid rgba(201, 168, 76, 0.45);
+            border-radius: 10px;
+        }
+
+        .card .back .back-symbol {
+            font-size: 2.5rem;
+            color: var(--gold);
+            opacity: 0.5;
+            text-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        .card .face {
+            transform: rotateY(180deg);
+            background: linear-gradient(160deg, #0d0120 0%, #1a0038 50%, #0d0120 100%);
+            border: 2.5px solid var(--gold);
+            box-shadow: 3px 3px 0 #a07820, 6px 6px 0 #7a5c10, 9px 9px 0 rgba(0, 0, 0, 0.55);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 8px;
+            overflow: hidden;
+        }
+
+        .card .face .card-name {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            color: var(--gold-light);
+            text-align: center;
+            text-shadow: 0 0 10px var(--gold-glow);
+            line-height: 1.3;
+        }
+
+        .card .face .card-art {
+            font-size: 3.5rem;
+            filter: drop-shadow(0 0 14px var(--gold-glow));
+        }
+
+        .card .face .card-number {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 500;
+            color: rgba(201, 168, 76, 0.6);
+            letter-spacing: 0.03em;
+        }
+
+        .card.spread:hover {
+            box-shadow: 0 0 30px var(--gold-glow), 0 0 60px rgba(107, 33, 168, 0.3);
+            z-index: 10;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg) !important;
+        }
+
+        /* ── Reveal overlay ── */
+        #reveal-overlay {
+            position: fixed;
+            inset: 0;
+            top: 52px;
+            z-index: 50;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(ellipse at center, rgba(45, 10, 78, 0.0) 0%, rgba(0, 0, 0, 0.0) 100%);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.8s ease;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        #reveal-overlay.visible {
+            opacity: 1;
+            pointer-events: all;
+            background: radial-gradient(ellipse at center, rgba(45, 10, 78, 0.85) 0%, rgba(0, 0, 0, 0.95) 100%);
+        }
+
+        #reveal-card-wrap {
+            position: relative;
+            width: 200px;
+            height: 315px;
+            transform-style: preserve-3d;
+            animation: floatCard 4s ease-in-out infinite;
+            margin-bottom: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        @keyframes floatCard {
+
+            0%,
+            100% {
+                transform: translateY(0) rotateY(0deg);
+            }
+
+            50% {
+                transform: translateY(-14px) rotateY(3deg);
+            }
+        }
+
+        #reveal-card-inner {
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: linear-gradient(160deg, #0d0120 0%, #1a0038 50%, #0d0120 100%);
+            border: 2.5px solid var(--gold);
+            box-shadow: 4px 4px 0 #a07820, 8px 8px 0 #7a5c10, 12px 12px 0 rgba(0, 0, 0, 0.5), 0 0 50px var(--gold-glow), 0 0 90px rgba(107, 33, 168, 0.45), inset 0 0 30px rgba(201, 168, 76, 0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 12px;
+            overflow: hidden;
+        }
+
+        #reveal-card-inner::before {
+            content: '';
+            position: absolute;
+            inset: 10px;
+            border: 1.5px solid rgba(201, 168, 76, 0.35);
+            border-radius: 13px;
+            pointer-events: none;
+        }
+
+        #reveal-card-name {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.04em;
+            color: var(--gold-light);
+            text-align: center;
+            text-shadow: 0 0 20px var(--gold-glow);
+            z-index: 1;
+        }
+
+        #reveal-card-art {
+            font-size: 5rem;
+            filter: drop-shadow(0 0 20px var(--gold-glow));
+            z-index: 1;
+        }
+
+        #reveal-card-number {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 500;
+            font-size: 0.8rem;
+            color: rgba(201, 168, 76, 0.7);
+            letter-spacing: 0.04em;
+            z-index: 1;
+        }
+
+        #reveal-info {
+            max-width: 460px;
+            width: 100%;
+            text-align: center;
+            animation: fadeUp 0.8s ease 0.3s both;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #reveal-title {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.4rem, 3.8vw, 2rem);
+            color: var(--gold);
+            text-shadow: 0 0 20px var(--gold-glow);
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.03em;
+        }
+
+        #reveal-keywords {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.12em;
+            color: rgba(201, 168, 76, 0.65);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        #reveal-desc {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 400;
+            font-size: clamp(0.88rem, 1.8vw, 1.05rem);
+            line-height: 1.7;
+            color: #d4c4a8;
+            margin-bottom: 1rem;
+        }
+
+        #reveal-meaning {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 400;
+            font-size: clamp(0.85rem, 1.7vw, 1rem);
+            line-height: 1.7;
+            color: #b8a88e;
+        }
+
+        #again-btn {
+            margin-top: 1.5rem;
+            padding: 0.85rem 2.5rem;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.08em;
+            color: var(--bg);
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 20px var(--gold-glow);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-transform: uppercase;
+        }
+
+        #again-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px var(--gold-glow), 0 0 80px var(--gold-glow);
+        }
+
+        .particle {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 40;
+            animation: particleFly 1.2s ease-out forwards;
+        }
+
+        @keyframes particleFly {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) scale(0);
+            }
+        }
+
+        @keyframes deckPulse {
+
+            0%,
+            100% {
+                filter: brightness(1);
+            }
+
+            50% {
+                filter: brightness(1.4) drop-shadow(0 0 20px var(--gold-glow));
+            }
+        }
+
+        .shuffling {
+            animation: deckPulse 0.4s ease-in-out 3;
+        }
+
+        /* ── Mobile: shrink deck ── */
+        @media (max-height: 600px),
+        (max-width: 400px) {
+            #deck-area {
+                width: 150px;
+                height: 230px;
+            }
+
+            .card {
+                width: 120px;
+                height: 192px;
+            }
+
+            #reveal-card-wrap {
+                width: 160px;
+                height: 250px;
+            }
+
+            #title-text {
+                margin-bottom: 0.8rem;
+            }
+
+            #hint-text {
+                margin-top: 0.8rem;
+            }
+        }
+
