@@ -13,17 +13,29 @@
 <body>
   <header>
     <div class="nav-container">
-      <nav class="nav-left">
-        <a href="#home">Home</a><span class="sep">|</span>
-        <a href="#shop">Shop</a><span class="sep">|</span>
-        <a href="#sigils">Sigils</a><span class="sep">|</span>
-        <a href="#teas">Teas</a>
-      </nav>
+      <div class="nav-left-icons">
+        <svg class="nav-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </div>
       
       <div class="header-logo">
         <div class="logo-inner">
           <img src="assets/logo_emblem_1773245590947.png" alt="Lighthouse Emblem">
         </div>
+      </div>
+      <div class="nav-right-icons">
+        <svg class="nav-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+        <svg class="nav-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <path d="M16 10a4 4 0 0 1-8 0" />
+        </svg>
       </div>
     </div>
   </header>
@@ -38,7 +50,7 @@
       <div class="hero-overlay-content">
         <div class="hero-logo">
           <div class="logo-inner">
-            <img src="assets/logo_emblem_1773245590947.png" alt="Lighthouse Emblem">
+            <img src="assets/BEACON.png" alt="Lighthouse Emblem">
           </div>
         </div>
         <h1 class="shop-title">BEACON<br>MAGICK SHOP</h1>
@@ -125,7 +137,41 @@
         </div>
       </div>
     </section>
+
+    <section class="tarot-banner-section" id="tarot">
+      <div id="tarot-scene">
+        <canvas id="stars-canvas"></canvas>
+        <div id="hero-header-tarot">
+            <h2 class="section-title" style="margin-bottom:0.5rem; text-transform:uppercase; color: var(--accent-gold);">Mystic Tarot Oracle</h2>
+            <div class="tarot-hero-divider"></div>
+            <p>Tarot is an ancient symbolic language — 78 cards mapping the full spectrum of human experience, from shadow to light, from chaos to clarity.</p>
+            <p>Each draw is <strong>divined by the present moment</strong>: your intention, the stars overhead, and the living pulse of the cosmos conspire to surface exactly what you need to see.</p>
+        </div>
+        <div id="deck-area"></div>
+        <div id="hint-text">
+            <span id="hint-finger">👆</span>
+            <span id="hint-label">Click to draw your fate</span>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <div id="reveal-overlay">
+      <div id="reveal-card-wrap">
+          <div id="reveal-card-inner">
+              <div id="reveal-card-name"></div>
+              <div id="reveal-card-art"></div>
+              <div id="reveal-card-number"></div>
+          </div>
+      </div>
+      <div id="reveal-info">
+          <div id="reveal-title"></div>
+          <div id="reveal-keywords"></div>
+          <div id="reveal-desc"></div>
+          <div id="reveal-meaning"></div>
+          <button id="again-btn">✦ Draw Again ✦</button>
+      </div>
+  </div>
 
   <footer>
     <div class="footer-links">
@@ -169,5 +215,6 @@
       if (heroBg) heroBg.style.transform = `translateY(${scrollY * 0.15}px)`;
     });
   </script>
+  <script src="tarot.js"></script>
 </body>
 </html>

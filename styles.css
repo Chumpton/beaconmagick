@@ -77,25 +77,25 @@ header.hidden {
   position: relative;
 }
 
-.nav-left, .nav-right {
+.nav-left-icons, .nav-right-icons {
   display: flex;
   align-items: center;
-  font-size: 0.85rem;
-  letter-spacing: 1px;
+  gap: 1.5rem;
 }
 
-.nav-left a, .nav-right a {
-  color: #CCC;
-}
-.nav-left a:hover, .nav-right a:hover {
-  color: var(--accent-gold);
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  stroke: #CCC;
+  stroke-width: 1.5;
+  fill: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.lantern-icon {
-  width: 16px;
-  height: 20px;
-  fill: var(--accent-gold);
-  margin-left: 0.5rem;
+.nav-icon:hover {
+  stroke: var(--accent-gold);
+  transform: translateY(-2px);
 }
 .header-logo {
   position: absolute;
@@ -507,9 +507,8 @@ footer {
     height: 45px;
   }
   .nav-container { padding: 0 0.5rem; }
-  .nav-left a, .nav-right a { font-size: 0.65rem; }
-  .sep { margin: 0 0.2rem; }
-  .lantern-icon { width: 12px; height: 16px; margin-left: 0.2rem; }
+  .nav-icon { width: 20px; height: 20px; }
+  .nav-left-icons, .nav-right-icons { gap: 1rem; }
   
   .header-logo { top: -15px; }
   .header-logo .logo-inner { width: 50px; height: 50px; border-width: 0.5px; }
